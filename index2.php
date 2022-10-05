@@ -1,36 +1,30 @@
 <html lang="en">
-    <?php include 'app.php'; $components = new Components; echo $components->createHead('Home');?>
-
 <head>
-
-
+<?php include 'app.php'; $components = new Components; $components->createHead('Home');?>
 </head>
 <body>
-    <header>
-<?php 
-//call the navBar function in the comonets class from app.php
+    <header>  
+        <nav>
+            <?php $components->createTopNav(); $components->createSideNav2();?>
+    </nav>
+</header>
+    <main>
 
+
+    
+    <?php
+
+$components->createPageComponent('large', 'Lesson 1.1', 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'images/mind.png', 'photo', 'Tutorial');
 
 ?>
-  <nav>
-        <div id="topnav">
-            <ul>
-                <li> <svg onclick="moveSideNav()" width="24px" height="24px" viewBox="0 0 24 24">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </li>
-                </li>
-            </ul>
+        <div class="contentComponent">
+            <h1>Php Start and End Tags</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus est, nunc sed ac nam faucibus. Duis id vulputate porta id blandit mi fringilla.</p>
+            <code>echo 'if you want to serve PHP code </?php ?>;"</code>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus est, nunc sed ac nam faucibus. Duis id vulputate porta id blandit mi fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus est, nunc sed ac nam faucibus. Duis id vulputate porta id blandit mi fringilla.</p>
         </div>
-        </li>
-        </ul>
-        </div>
-            <?php echo $components->createSideNav();?>
-    </nav>
-    
-    <main></main>
-
-<!-- http://solace.ist.rit.edu/~egc5187/ -->
+</main>
 </body>
 </html>
+
 

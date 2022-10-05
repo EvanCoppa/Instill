@@ -50,6 +50,10 @@ a {
   float: left;
 }
 
+/* #topnav li a {
+  text-align: center;
+height: 50px !important;
+} */
 /* Side Nav */
 
 #sidenav {
@@ -107,7 +111,7 @@ a {
   margin: 40px 20px 0px 20px;
   flex-grow: 1;
   display: flex;
-
+position: relative;
   background-color: #ffffff;
 }
 .mediumComponent > div,
@@ -133,11 +137,18 @@ a {
   position: relative;
 }
 
-.largeComponent img{
-  position: absolute;
-  right: 50px;
-  top: 40px;
+.contentComponent {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 40px 20px 0px 20px;
+  flex-grow: 1;
+ position: relative;
+  background-color: #ffffff;
 }
+
 
 .pageComponentContent h3 {
   color: red;
@@ -152,6 +163,72 @@ a {
   font-weight: 600;
    margin-top: 0px;
 }
+.pageComponentImage{
+}
+
 .pageComponentImage img {
  max-height: 280px;
+ position: absolute;
+ right: 50px;
+ top: 40px;
+}
+
+/* Button */
+
+
+.button {
+  background-color: #8A93BE; /* Green */
+  width: 260px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+   color:white;
+  font-weight: 800;
+  display: flex;
+ }
+
+
+
+.button div{
+ justify-content: center;
+ margin: auto 10px auto 10px;
+}
+
+
+.purple{
+  background-color: #8A93BE;
+  color: white;
+}
+
+
+#sidenav2 {
+  box-shadow: 0px 0.5px 1px #888888;
+  height: calc(100% - 4rem);
+  width: 12rem;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+}
+
+/* The navigation menu links */
+#sidenav2 a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  height: 40px;
+ }
+
+
+ code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%;
 }
