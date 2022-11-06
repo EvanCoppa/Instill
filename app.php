@@ -65,7 +65,7 @@ public function createMainComponent(){
     echo'
     <div id="topnav">
     <ul>
-        <li><img src="images/logo.png" alt="" height="30"></li>
+        <li><a href="index.php"><img src="images/logo.png" alt="" height="30"></a></li>
         <li><a href="index.php">Instill</a></li>
         <li><i id="menu" style="margin:auto;" class="fa fa-bars" onclick="expandMenu()"></i></li>
     </ul>
@@ -76,12 +76,12 @@ public function createMainComponent(){
  }
 
 public function createSideNav() {
- 
-     echo '<div id="sidenav">';
+    echo '<div id="sidenav">';
     // if ($_COOKIE["isOpen"] == "false") {
     //     echo 'style="transition-duration: 0s; width: 5rem;"';
     // }
     // echo '>';
+    
     
     $url = $_SERVER['REQUEST_URI'];
     

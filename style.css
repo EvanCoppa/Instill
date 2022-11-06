@@ -225,6 +225,7 @@ position: relative;
   left: 0;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
+  display: inline;
 }
 
 /* The navigation menu links */
@@ -236,6 +237,8 @@ position: relative;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.2em;
   height: 40px;
+  margin: 0px 20px;
+
  }
 
 
@@ -273,6 +276,9 @@ footer .footerContent h1 {
 /* Media queries */
 @media screen and (max-width:600px) {
   #sidenav {
+    display: none;
+  }
+  #sidenav2 {
     display: none;
   }
   main {

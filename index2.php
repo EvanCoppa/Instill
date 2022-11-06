@@ -24,6 +24,9 @@ $components->createPageComponent('large', 'Lesson 1.1', 'consectetur adipiscing 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus est, nunc sed ac nam faucibus. Duis id vulputate porta id blandit mi fringilla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Luctus est, nunc sed ac nam faucibus. Duis id vulputate porta id blandit mi fringilla.</p>
         </div>
 </main>
+<?php
+$components->createFooter()
+?>
 </body>
 </html>
 
