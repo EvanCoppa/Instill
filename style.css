@@ -11,7 +11,7 @@ main {
   margin-top: 4rem; /* Same as the width of the sidebar */
   background-color: #f1f1f1;
   padding-left: 12rem;
-  padding-bottom: 12rem;
+  padding-bottom: 8rem;
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -38,16 +38,28 @@ a {
   height: 4rem;
   box-shadow: 0px 0.5px 1px #888888a2;
   z-index: 100;
+
+
 }
 
 #topnav ul {
   padding-left: 17px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #topnav li {
   display: inline;
   padding: 10px 15px 15px 10px;
   float: left;
+}
+
+#topnav li a {
+  font-size: 2em;
+}
+
+#topnav i {
+  display: none;
 }
 
 /* #topnav li a {
@@ -66,6 +78,7 @@ height: 50px !important;
   left: 0;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
+  display: inline;
 }
 
 /* The navigation menu links */
@@ -164,6 +177,7 @@ position: relative;
    margin-top: 0px;
 }
 .pageComponentImage{
+  flex-wrap: wrap;
 }
 
 .pageComponentImage img {
@@ -231,4 +245,43 @@ position: relative;
   background-color: #f1f1f1;
   padding: 2px;
   font-size: 105%;
+}
+
+/* Footer */
+
+footer {
+  padding-left: 12em;
+  background-color: #B6BDD3;
+  /* height: 10em; */
+}
+
+footer .footerContent h1 {
+  margin-top: 0em;
+  padding-top: 1em;
+
+}
+
+.footerContent {
+  display: flex;
+  flex-flow: column wrap;
+  /* flex-direction: column; */
+  align-items: center;
+  margin-top: 0em;
+}
+
+
+/* Media queries */
+@media screen and (max-width:600px) {
+  #sidenav {
+    display: none;
+  }
+  main {
+    padding-left: 0em;
+  }
+  footer  {
+    padding-left: 0em;
+  }
+  #topnav li i{
+    display:inline;
+  }
 }

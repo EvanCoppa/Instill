@@ -54,6 +54,8 @@ public function createMainComponent(){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>' . $title . '</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">';
     
  }
@@ -63,11 +65,11 @@ public function createMainComponent(){
     echo'
     <div id="topnav">
     <ul>
-        <li><img src="images/logo.png" alt="" height="30">  <a href="index.php">Instill</a></li>
-        </li>
-        </li>
+        <li><img src="images/logo.png" alt="" height="30"></li>
+        <li><a href="index.php">Instill</a></li>
+        <li><i id="menu" style="margin:auto;" class="fa fa-bars" onclick="expandMenu()"></i></li>
     </ul>
-</div>
+    </div>
 </li>
 </ul>
 </div>';
@@ -120,7 +122,18 @@ public function createSideNav() {
 }
 
 
-
+public function createFooter() {
+    echo '
+    <footer>
+        <div class="footerContent">
+            <h1>Instill</h1>
+            <p>Contact us</p>
+            <p>Feedback</p>
+            <p>Rubric</p>
+        </div>
+    </footer>
+    ';
+}
 
 public function createSideNav2() {
  

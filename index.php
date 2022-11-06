@@ -8,7 +8,7 @@
             <?php $components->createTopNav(); $components->createSideNav();?>
     </nav>
 </header>
-    <main>
+    <main onclick="refoldMenu()">
     <?php
             // $size, $header, $content, $img_path optional on small, $img_alt optional on small, $sub_tag optional on small and medium)
             $components->createPageComponent('large', 'PHP Basics', 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'images/image 28.png', 'photo', 'Tutorial');
@@ -31,6 +31,9 @@
         ?>
         
 </main>
+<?php
+$components->createFooter()
+?>
 </body>
 </html>
 
