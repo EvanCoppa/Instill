@@ -127,6 +127,7 @@ public function createFooter() {
     <footer>
         <div class="footerContent">
             <h1>Instill</h1>
+            <hr style="width: 50%;">
             <p>Contact us</p>
             <p>Feedback</p>
             <p>Rubric</p>
