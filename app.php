@@ -38,6 +38,22 @@ switch ($size) {
             <img src="' . $img_path . '" alt="' . $img_alt . '">
         </div> </div>';
         break;
+        case 'mini':
+            echo '<div class="miniComponent">
+            <div class="pageComponentContent">
+            <h3>// ' . $sub_tag . ' //</h3>
+            <h2>' . $header . '</h2>
+                <p>' . $content . '</p>
+            <div class="button">
+                <div><img src="images/icons8-play-96.png" alt="play button" height="40" width="40"></div>
+                <div>Start Learning Now</div>
+            </div>    
+                
+            </div>
+            <div class="pageComponentImage">
+                <img src="' . $img_path . '" alt="' . $img_alt . '">
+            </div> </div>';
+            break;
     default:
         # code...
         break;
@@ -64,14 +80,18 @@ public function createMainComponent(){
  {
     echo'
     <div id="topnav">
-    <ul>
-        <li><a href="index.php"><img src="images/logo.png" alt="" height="30"></a></li>
-        <li><a href="index.php">Instill</a></li>
-        <li><i id="menu" style="margin:auto;" class="fa fa-bars" onclick="expandMenu()"></i></li>
-    </ul>
+    <div class="logo">
+        <a href="index.php"><img src="images/logo.png" alt="" height="30"></a>
+        <a href="index.php">Instill</a>
+        <i id="menu" style="margin:auto;" class="fa fa-bars" onclick="expandMenu()"></i>
     </div>
-</li>
-</ul>
+    <div class="breadc_crumb">
+    <ul class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Pictures</a></li>
+  <li><a href="#">Summer 15</a></li>
+  <li>Italy</li>
+</ul></div> 
 </div>';
  }
 

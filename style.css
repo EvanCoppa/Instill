@@ -133,12 +133,17 @@ position: relative;
 }
 
 .smallComponent {
-  width: 250px;
+  max-width: 250px;
   height: 250px;
 }
 
+.smallComponent h2{
+  font-size: 1rem;
+}
+
+
 .mediumComponent {
-  width: 500px;
+  max-width: 500px;
   height: 250px;
 }
 
@@ -165,17 +170,12 @@ position: relative;
 
 .pageComponentContent h3 {
   color: red;
-  font-size: 1.2rem;
   font-weight: 400;
   font-family: monospace;
   margin-bottom: 10px;
 }
 
-.pageComponentContent h2 {
-  font-size: 2rem;
-  font-weight: 600;
-   margin-top: 0px;
-}
+
 .pageComponentImage{
   flex-wrap: wrap;
 }
@@ -290,4 +290,13 @@ footer .footerContent h1 {
   #topnav li i{
     display:inline;
   }
+}
+
+
+/* Course */
+
+#course_header {
+background-color: rgb(49, 81, 163);
+width: 100%;
+display: flex;
 }

@@ -1,11 +1,11 @@
 <html lang="en">
 <head>
-<?php include 'app.php'; $components = new Components; $components->createHead('Home');?>
+<?php include 'app.php'; $components = new Components; $components->createHead('Lesson');?>
 </head>
 <body>
     <header>  
         <nav>
-            <?php $components->createTopNav(); $components->createSideNav2();?>
+            <?php $components->createTopNav(); $components->createSideNav();?>
     </nav>
 </header>
     <main>
