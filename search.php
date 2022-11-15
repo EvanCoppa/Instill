@@ -22,8 +22,7 @@
         </nav>
     </header>
     <main onclick="refoldMenu()">
-<!-- Takes a search imput from the user 
-and return things from the data base that have the same name by a select statment -->
+
         <div class="search">
             <form action="search.php" method="get">
                 <input type="text" name="search" placeholder="Search">
@@ -31,7 +30,6 @@ and return things from the data base that have the same name by a select statmen
             </form>
         </div>
         <?php
-       // if the user has imputed something into the search bar select all from the data base that have the same name
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
             $result = $mysqli->query("SELECT * FROM course WHERE title LIKE '%$search%'");
@@ -41,20 +39,7 @@ and return things from the data base that have the same name by a select statmen
         }
         ?>
     </main>
-    <?php
-    $components->createFooter()
-    ?>
 
-
-
-and return things from the data base that have the same name by a select from the db -->
-
-
-<?php
-   
-        ?>
-
-    </main>
     <?php
     $components->createFooter()
     ?>

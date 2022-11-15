@@ -112,9 +112,13 @@ public function createSideNav($key) {
 public function createFooter() {
     echo '
     <footer>
+    <div class="footerTitle">
+        <h1>Instill</h1>
+        <hr style="width: 50%;">
+    </div>
+
         <div class="footerContent">
-            <h1>Instill</h1>
-            <hr style="width: 50%;">
+           
             <p>Contact us</p>
             <p>Feedback</p>
             <p>Rubric</p>
