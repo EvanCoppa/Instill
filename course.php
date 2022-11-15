@@ -3,7 +3,9 @@
 <head>
     <?php include 'app.php';
     $components = new Components;
-    $components->createHead('Course'); ?>
+    $components->createHead('Course');
+    include 'db_connect.php';
+    ?>
 </head>
 
 <body>
@@ -33,69 +35,90 @@
 
             <div class="largeComponent">
                 <div class="pageComponentContent">
-                <div>
                     <div>
-                        <h3>Course Description</h3>
-                        <p></p>
-                    </div>
-                    <div>
-                        <h3>Course Details</h3>
-                        <ul>
-                            <li>
-                                <img src="" alt="">
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <img src="" alt="">
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <img src="" alt="">
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <img src="" alt="">
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <img src="" alt="">
-                                <h4></h4>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Takeaway Skills</h3>
-                        <ul>
-                            <li>
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <h4></h4>
-                            </li>
-                            <li>
-                                <h4></h4>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Share this course</h3>
-                        <ul>
+                        <div>
+                            <h3>Course Description</h3>
+                            <p></p>
+                        </div>
+                        <div>
+                            <h3>Course Details</h3>
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <h4></h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Takeaway Skills</h3>
+                            <ul>
+                                <li>
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <h4></h4>
+                                </li>
+                                <li>
+                                    <h4></h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Share this course</h3>
+                            <ul>
 
-                        </ul>
+                            </ul>
+                        </div>
+
                     </div>
+
+
 
                 </div>
 
+        </section>
+        <section>
+            <?php
+            // get the id from the url
+            // foreach lesson in the database with the course_id create a link to that page
+            // create a link to the course page
 
-              
-                </div>
+            $course_id = $_GET['id'];
+            $sql = "SELECT * FROM lessons WHERE course_id = $course_id";
+            $result = $mysqli->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<a href='lesson.php?id=" . $row['id'] . "'>" . $row['title'] . "</a><br>";
+                }
+            } else {
+                echo "0 results";
+            }
 
+
+
+            ?>
         </section>
     </main>
     <?php

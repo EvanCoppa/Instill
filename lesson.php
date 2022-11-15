@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
-<?php include 'app.php'; $components = new Components; $components->createHead('Lesson');?>
+<?php include 'app.php'; $components = new Components; $components->createHead('Lesson');
+include 'db_connect.php'?>
 </head>
 <body>
     <header>  
@@ -13,6 +14,7 @@
 
     
     <?php
+    
 
 $components->createPageComponent('large', 'Lesson 1.1', 'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'images/mind.png', 'photo', 'Tutorial');
 
