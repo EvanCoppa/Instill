@@ -6,8 +6,8 @@
 	session_start();
 	$path = "./";
 	$examID = $_GET['examID'];
-    $calledURL = basename($_SERVER['REQUEST_URI']);
-	require $path.'../../../dbConnect.inc'; 
+	$calledURL = basename($_SERVER['REQUEST_URI']);
+	require db_connect.php;
 	
 	$sql="SELECT * FROM quiz WHERE examID = '$examID';";
 
