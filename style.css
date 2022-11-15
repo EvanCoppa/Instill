@@ -271,10 +271,9 @@ footer .footerContent h1 {
 
 .footerContent {
   display: flex;
-  flex-flow: column wrap;
-  /* flex-direction: column; */
   align-items: center;
   margin-top: 0em;
+  justify-content: space-between;
 }
 
 
@@ -298,10 +297,3 @@ footer .footerContent h1 {
 }
 
 
-/* Course */
-
-#course_header {
-background-color: rgb(49, 81, 163);
-width: 100%;
-display: flex;
-}
