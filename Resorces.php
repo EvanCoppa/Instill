@@ -17,7 +17,7 @@
     <header>
         <nav>
             <?php $components->createTopNav();
-            $components->createSideNav(5); ?>
+            $components->createSideNav(8); ?>
         </nav>
     </header>
     <main onclick="refoldMenu()">

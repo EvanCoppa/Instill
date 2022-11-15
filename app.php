@@ -7,7 +7,7 @@ public function createPageComponent($size, $header, $content, $path, $img_path =
    
 switch ($size) {
     case 'small':
-        echo '<div class="smallComponent">
+        echo '<div class="smallComponent" onclick="route(\'' . $path . '\')">
         <div class="pageComponentContent">
         <h2>' . $header . '</h2>
             <p>' . $content . '</p>
@@ -77,18 +77,19 @@ public function createMainComponent(){
     echo'
     <div id="topnav">
     <div class="logo">
-        <a href="index.php"><img src="images/logo.png" alt="" height="30"></a>
-        <a href="index.php">Instill</a>
-        <i id="menu" style="margin:auto;" class="fa fa-bars" onclick="expandMenu()"></i>
-    </div>
-    <div class="breadc_crumb">
-    <ul class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Pictures</a></li>
-  <li><a href="#">Summer 15</a></li>
-  <li>Italy</li>
-</ul></div> 
+        <ul>
+        <li><a href="#"><a href="index.php"><img src="images/logo.png" alt="" height="35"></a></a></li>
+        <li><a href="index.php">Instill</a></li>
+      </ul>
+     </div>
 </div>';
+// <div class="breadc_crumb">
+// <ul class="breadcrumb">
+// <li><a href="#">Home</a></li>
+// <li><a href="#">Pictures</a></li>
+// <li><a href="#">Summer 15</a></li>
+// <li>Italy</li>
+// </ul></div> 
  }
 
 public function createSideNav($key) {
@@ -96,12 +97,15 @@ public function createSideNav($key) {
 
     include 'db_connect.php';
     $result = $mysqli->query("SELECT * FROM sidenav");
+    $i = 1;
     while ($row = $result->fetch_assoc()) {
-        if ($key == $row['id']) {
+    
+        if ($key == $i) {
             echo '<a href="' . $row['path_url'] . '" id="active">' . '<div class="icons">' . '<img src="' . $row['img_url'] . '" />' . '<div class="name">' . $row['title'] . '</div> </div> </a>';
         } else {
             echo '<a href="' . $row['path_url'] . '">' . '<div class="icons">' . '<img src="' . $row['img_url'] . '" />' . '<div class="name">' . $row['title'] . '</div> </div> </a>';
         }
+        $i++;
     }
 
     echo '</div>';

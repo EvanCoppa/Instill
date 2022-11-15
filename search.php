@@ -22,22 +22,34 @@
         </nav>
     </header>
     <main onclick="refoldMenu()">
-
         <div class="search">
+            <div>
+            <h2>Search a Course</h2>
+            </div>
+            <div class="search_child">
             <form action="search.php" method="get">
-                <input type="text" name="search" placeholder="Search">
+                <input type="search" name="search" placeholder="Search">
                 <input type="submit" value="Search">
             </form>
+            </div>
+          
         </div>
-        <?php
+<section id="search_results">
+<?php
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
             $result = $mysqli->query("SELECT * FROM course WHERE title LIKE '%$search%'");
             while ($row = $result->fetch_assoc()) {
                 $components->createPageComponent('medium', $row['title'], $row['description'], $row['path_url'], '', 'photo', 'Course');
             }
+            $result = $mysqli->query("SELECT * FROM lesson WHERE title LIKE '%$search%'");
+            while ($row = $result->fetch_assoc()) {
+                $components->createPageComponent('small', $row['title'], '', $row['path_url'], '', 'photo', 'Course');
+            }
         }
         ?>
+</section>
+      
     </main>
 
     <?php

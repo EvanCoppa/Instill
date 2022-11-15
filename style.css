@@ -43,10 +43,9 @@ a {
 }
 
 #topnav ul {
-  padding-left: 17px;
-  display: flex;
-  justify-content: space-between;
-}
+  padding-left: px;
+  display: inline;
+ }
 
 #topnav li {
   display: inline;
@@ -300,3 +299,38 @@ footer .footerContent h1 {
 }
 
 
+input[type="search"]{
+   height: 40px;
+  border-radius: 10px;
+  border: 1px solid #8A93BE;
+  padding: 0px 10px;
+  font-size: 1.2rem;
+  margin: 0px 0px 20px 0px;
+  width: 400px;
+}
+
+.search{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 20px 0px;
+  width: 100vw;
+}
+
+.search_child form{
+  display: flex;
+  justify-content: center;
+height: 40px;}
+
+.search_child{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#search_results{
+  display: flex;
+  flex-wrap: wrap;
+
+}
