@@ -21,6 +21,17 @@ function refoldMenu() {
     } 
 }
 
+function route(url) {
+//change page to the url
+
+document.location.href = url;
+
+
+
+}
+
+
+
 // const mediaQuery = window.matchMedia('(max-width: 600px)');
 // if (mediaQuery.matches) {
 //     // if (menuOpen==false) {

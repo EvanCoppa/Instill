@@ -118,7 +118,7 @@ height: 50px !important;
 
 .smallComponent,
 .mediumComponent,
-.largeComponent {
+.largeComponent, .miniComponent {
   border-radius: 20px;
   padding: 20px;
   margin: 40px 20px 0px 20px;
@@ -185,6 +185,11 @@ position: relative;
  position: absolute;
  right: 50px;
  top: 40px;
+}
+
+
+miniComponent{
+
 }
 
 /* Button */
