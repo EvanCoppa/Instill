@@ -87,21 +87,14 @@
                 </div>
 
         </section> -->
-        <section>
+        <section id="course_section">
             <?php
-            // get the id from the url
-            // foreach lesson in the database with the course_id create a link to that page
-            // create a link to the course page
-
             $course_id = $_GET['id'];
-
             $sql = "SELECT * FROM course WHERE id = $course_id";
             $result = $mysqli->query($sql);
             while ($row = $result->fetch_assoc()) {
                 $components->createPageComponent('large', $row['title'], $row['description'], $row['path_url'], '', '' , 'Course');
             }
-
-
             $sql = "SELECT * FROM lesson WHERE course_id = $course_id";
             $result = $mysqli->query($sql);
             if ($result->num_rows > 0) {
@@ -113,9 +106,6 @@
             } else {
                 echo "0 results";
             }
-
-
-
             ?>
         </section>
     </main>
