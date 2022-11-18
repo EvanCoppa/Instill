@@ -205,6 +205,60 @@ public function createFooter() {
 }
 
 
+public function createCommentsSection() {
+    if($mysqli) {
+        if (!empty($_POST['name']) && !empty($_POST['comment'])) {
+            $stmt = $mysqli->prepare("INSERT INTO comments (name, comment) VALUES (?,?)");
+                $stmt->bind_param("ss",$_POST['name'],$_POST['comment']);
+                $stmt->execute();
+                $stmt->close();
+        }
+        $sql = 'SELECT name, comment FROM comments';
+        $res = $mysqli->query($sql);
+        if($res){
+            while($rowholder = mysqli_fetch_array($res,MYSQLI_ASSOC)){
+                $records[] = $rowholder;
+            }		
+        }
+    }
+    echo "
+    <h3 style='text-align:center;'>Comments</h3>
+    <table id='commenttable'>";
+	$startrow=true;
+	foreach($records as $this_row){
+		if ($startrow) {
+			echo '<tr>';
+			foreach($this_row as $key => $field) {
+				echo '<th>' . htmlspecialchars($key) . '</th>';
+			}
+			echo '</tr>';
+			echo '<tr>';
+			foreach($this_row as $key => $field) {
+				echo '<td>' . htmlspecialchars($field) . '</td>';
+			}	
+			echo '</tr>';		
+			$startrow=false;
+
+		} else {
+			echo '<tr>';
+			foreach($this_row as $key => $field) {
+				echo '<td>' . htmlspecialchars($field) . '</td>';
+			}	
+			echo '</tr>';		
+		}
+		
+	} // end of foreach loop
+echo'
+</table>
+<hr/>
+<h3 style="text-align: center;">Add to the list</h3>
+<form action="index.php?page=comments" method="POST" onsubmit="return checkName();">		
+	Name: <input type="text" id="name" name="name"/><br>
+    Comment:<br /> <textarea id="comment" name="comment" cols="50" rows="10"></textarea>
+    <p><input type="submit" value="Add to the List"/></p>
+</form>';
+}
+
 
 public function createSideNav2() {
  
