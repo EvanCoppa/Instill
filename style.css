@@ -187,8 +187,8 @@ position: relative;
 }
 
 
-miniComponent{
-
+.miniComponent{
+width: 40%;
 }
 
 /* Button */
@@ -333,4 +333,11 @@ height: 40px;}
   display: flex;
   flex-wrap: wrap;
 
+}
+
+
+#course_section{
+  display: flex;
+  flex-wrap: wrap;
+  
 }

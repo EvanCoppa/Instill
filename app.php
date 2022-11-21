@@ -111,6 +111,79 @@ public function createSideNav($key) {
     echo '</div>';
 
 }
+public function connectDB(){
+  echo'  $mysqli = mysqli_connect("localhost", "egc5187", "Literacy8+cowherd", "egc5187");
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+        }';
+}
+
+public function createQuiz(){
+    session_name("User");
+    session_start();
+    $path = "./";
+    $examID = $_GET['examID'];
+    $calledURL = basename($_SERVER['REQUEST_URI']);
+    require $path . '../../../dbConnect.inc';
+    $sql = "SELECT * FROM quiz WHERE examID = '$examID';";
+    
+    if (isset($_POST["submitted"])) {
+        // Come back and want to grade quiz
+        $grade = true;
+        echo '<h4 style="color:green;background:#FFFFBF">' . 'Correct Answers Appear' . '</h4>';
+    } else {
+        $grade = false;
+    }      
+   echo' <form action="<?php echo $calledURL; ?>" method="POST">';
+        
+        $result = mysqli_query($mysqli, $sql);
+        $quiz_id = 0;
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+                $quizName = $row['heading'];
+                echo '<h2>' . $quizName . '</h2>';
+                $_SESSION['quiz'] = $quizName;
+                //  echo '<h1>' . $_SESSION['quiz'] . '</h1>';
+            } 
+            
+            $sqlQ = "SELECT * FROM questions WHERE examID = '$examID';";
+            $resultQ = mysqli_query($mysqli, $sqlQ);
+            $count = 1;
+    
+            if (mysqli_num_rows($resultQ) > 0) {
+                while ($rowQ = mysqli_fetch_array($resultQ)) {
+                    $question = $rowQ['question'];
+                    $questionID = $rowQ['questionID'];
+                    echo $count . '. <p style="display: inline-block;">' . $question . '</p><br/>';
+                    $count++;
+                    $sqlOptions = "SELECT * FROM multipleChoiceOptions WHERE questionID = '$questionID';";
+                    $resultOptions = mysqli_query($mysqli, $sqlOptions);
+                    if (mysqli_num_rows($resultOptions) > 0) {
+                        $optionCount = 1;
+                        while ($rowOptions = mysqli_fetch_array($resultOptions)) {
+                            $option = $rowOptions['mcOption'];
+                            $c  = $rowOptions['isCorrect'];
+    
+                            echo '&nbsp;&nbsp;&nbsp;&nbsp;' . $optionCount . ') <label ';
+    
+                            if ($grade && $c == 1) {
+                                echo 'style="font-weight:bold;color:green;background:#FFFFBF;"';
+                            }
+                            echo '>' . $option . '</label> <input name="' . $questionID . 'Option"  value="' . $c . '" type="radio" />            <br/>';
+    
+                            $optionCount++;
+                        } 
+                        echo "<p>&nbsp;</p>";
+                    } 
+                }
+            } 
+        } 
+       echo' <div id="button"> <input type="submit" name="submitted" value="SUBMIT"> </div><!-- end of div for submit button --> </form>';
+        
+    
+       
+}
 
 
 public function createFooter() {
@@ -130,6 +203,62 @@ public function createFooter() {
     </footer>
     ';
 }
+
+
+public function createCommentsSection() {
+    if($mysqli) {
+        if (!empty($_POST['name']) && !empty($_POST['comment'])) {
+            $stmt = $mysqli->prepare("INSERT INTO comments (name, comment) VALUES (?,?)");
+                $stmt->bind_param("ss",$_POST['name'],$_POST['comment']);
+                $stmt->execute();
+                $stmt->close();
+        }
+        $sql = 'SELECT name, comment FROM comments';
+        $res = $mysqli->query($sql);
+        if($res){
+            while($rowholder = mysqli_fetch_array($res,MYSQLI_ASSOC)){
+                $records[] = $rowholder;
+            }		
+        }
+    }
+    echo "
+    <h3 style='text-align:center;'>Comments</h3>
+    <table id='commenttable'>";
+	$startrow=true;
+	foreach($records as $this_row){
+		if ($startrow) {
+			echo '<tr>';
+			foreach($this_row as $key => $field) {
+				echo '<th>' . htmlspecialchars($key) . '</th>';
+			}
+			echo '</tr>';
+			echo '<tr>';
+			foreach($this_row as $key => $field) {
+				echo '<td>' . htmlspecialchars($field) . '</td>';
+			}	
+			echo '</tr>';		
+			$startrow=false;
+
+		} else {
+			echo '<tr>';
+			foreach($this_row as $key => $field) {
+				echo '<td>' . htmlspecialchars($field) . '</td>';
+			}	
+			echo '</tr>';		
+		}
+		
+	} // end of foreach loop
+echo'
+</table>
+<hr/>
+<h3 style="text-align: center;">Add to the list</h3>
+<form action="index.php?page=comments" method="POST" onsubmit="return checkName();">		
+	Name: <input type="text" id="name" name="name"/><br>
+    Comment:<br /> <textarea id="comment" name="comment" cols="50" rows="10"></textarea>
+    <p><input type="submit" value="Add to the List"/></p>
+</form>';
+}
+
 
 public function createSideNav2() {
  
