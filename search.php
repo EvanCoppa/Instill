@@ -40,11 +40,11 @@
             $search = $_GET['search'];
             $result = $mysqli->query("SELECT * FROM course WHERE title LIKE '%$search%'");
             while ($row = $result->fetch_assoc()) {
-                $components->createPageComponent('medium', $row['title'], $row['description'], $row['path_url'], '', 'photo', 'Course');
+                $components->createPageComponent('medium', $row['title'], $row['description'], $row['path_url'], $row['photo_path'], '', 'Course');
             }
             $result = $mysqli->query("SELECT * FROM lesson WHERE title LIKE '%$search%'");
             while ($row = $result->fetch_assoc()) {
-                $components->createPageComponent('small', $row['title'], '', $row['path_url'], '', 'photo', 'Course');
+                $components->createPageComponent('small', $row['title'], '', $row['path_url'], $row['photo_path'], '', 'Course');
             }
         }
         ?>
