@@ -197,7 +197,8 @@ public function createFooter() {
         <div class="footerContent">
            
             <p>Contact us</p>
-            <p>Feedback</p>
+            <p><a href="feedback.php">Feedback</a></p>
+            <p><a href="comments.php">Comments</a></p>
             <p>Rubric</p>
         </div>
     </footer>
@@ -205,7 +206,7 @@ public function createFooter() {
 }
 
 
-public function createCommentsSection() {
+public function createCommentsSection($mysqli) {
     if($mysqli) {
         if (!empty($_POST['name']) && !empty($_POST['comment'])) {
             $stmt = $mysqli->prepare("INSERT INTO comments (name, comment) VALUES (?,?)");
@@ -222,8 +223,8 @@ public function createCommentsSection() {
         }
     }
     echo "
-    <h3 style='text-align:center;'>Comments</h3>
-    <table id='commenttable'>";
+    <h2 style='text-align:center;'>Comments</h2>
+    <table id='commenttable' style='margin: auto; border: 1px solid'>";
 	$startrow=true;
 	foreach($records as $this_row){
 		if ($startrow) {
@@ -252,7 +253,7 @@ echo'
 </table>
 <hr/>
 <h3 style="text-align: center;">Add to the list</h3>
-<form action="index.php?page=comments" method="POST" onsubmit="return checkName();">		
+<form action="comments.php" method="POST" onsubmit="return checkName();">		
 	Name: <input type="text" id="name" name="name"/><br>
     Comment:<br /> <textarea id="comment" name="comment" cols="50" rows="10"></textarea>
     <p><input type="submit" value="Add to the List"/></p>
@@ -260,110 +261,7 @@ echo'
 }
 
 
-public function createSideNav2() {
- 
-    echo '<div id="sidenav2">';
-   // if ($_COOKIE["isOpen"] == "false") {
-   //     echo 'style="transition-duration: 0s; width: 5rem;"';
-   // }
-   // echo '>';
-   
-   $url = $_SERVER['REQUEST_URI'];
-   
-  
 
-   // Lesson 1 - PHP Basics
-// 1.1 - Syntax
-// 1.2 - Comments
-// 1.3 - Variables
-// Lesson 1 Review
-// Lesson 2 - PHP Loops
-// 2.1 - If Loops
-// 2.2 - If Else Loops
-// Lesson 2 Review
-// Lesson 3 - Operands
-// 3.1 - Echo
-// 3.2 - VarDump
-// 3.3 - HTML Output
-// Lesson 3 Review
-// Lesson 4 - Forms
-// 4.1 - Creating Forms
-// 4.2 - Linking Forms
-// 4.3 - Get VS Post
-// 4.4 - Access Data
-// 4.5 - Sending Emails 
-// Lesson 4 Overview
-
-// create a multidimensional array for the lessons and the sub lessons
-// then loop through the array and create the links
-
-$lessons = array(
-    1 => array(
-        1 => "1.1 - Syntax",
-        2 => "1.2 - Comments",
-        3 => "1.3 - Variables",
-        4 => "1.4 - Data Types",
-        5 => "1.5 - Constants",
-        6 => "Lesson 1 Review",
-    ),
-    2 => array(
-        1 => "2.1 - If Loops",
-        2 => "2.2 - If Else Loops",
-        3 => "Lesson 2 Review",
-    ),
-    3 => array(
-        1 => "3.1 - Echo",
-        2 => "3.2 - VarDump",
-        3 => "3.3 - HTML Output",
-        4 => "Lesson 3 Review",
-    ),
-    4 => array(
-        1 => "4.1 - Creating Forms",
-        2 => "4.2 - Linking Forms",
-        3 => "4.3 - Get VS Post",
-        4 => "4.4 - Access Data",
-        5 => "4.5 - Sending Emails ",
-        6 => "Lesson 4 Overview",
-    ),
-    5 => array(
-        1 => "5.1 - Arrays",
-        2 => "5.2 - Associative Arrays",
-        3 => "5.3 - Loops",
-        4 => "5.4 - Sort",
-        5 => "5.5 - Functions",
-        6 => "Lesson 5 Overview",
-    ),
-    6 => array(
-        1 => "6.1 - Includes",
-        2 => "6.2 - Classes",
-        3 => "6.3 - Objects",
-        4 => "6.4 - Inheritance",
-        5 => "6.5 - Polymorphism",
-        6 => "6.6 - Encapsulation",
-        7 => "6.7 - Abstraction",
-        8 => "Lesson 6 Overview",
-    ),
-    7 => array(
-        1 => "7.1 - Intro",
-        2 => "7.2 - Setup",
-        3 => "7.3 - Basics",
-        4 => "7.4 - Advanced",
-        5 => "Lesson 7 Overview",
-    ));
-   
-
-    // loop through the lessons and sub lessons creating the links in the side nav
-    $i = 0;
-    foreach ($lessons as $key => $value) {
-        $i++;
-       echo '<a href="lesson.php?lesson=">' . '<div class="icons">' . '<div class="name">Lesson '  . $i . ' Overview</div> </div> </a>';
-        foreach ($value as $key2 => $value2) {
-            echo '<a href="lesson.php?lesson=' . $key . '&sublesson=' . $key2 . '">' . '<div class="icons">' . '<div class="subName">' . $value2 . '</div> </div> </a>';
-        }
-    }
-
- 
-}
 }
 
 ?>
