@@ -23,7 +23,7 @@
         <?php
         $result = $mysqli->query("SELECT * FROM lesson");
             while ($row = $result->fetch_assoc()) {
-                $components->createPageComponent('small', $row['title'], '', $row['path_url']);
+                $components->createPageComponent('mini', $row['title'], '', $row['path_url']);
             }
         ?>
 

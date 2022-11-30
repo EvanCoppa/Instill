@@ -93,7 +93,7 @@
             $sql = "SELECT * FROM course WHERE id = $course_id";
             $result = $mysqli->query($sql);
             while ($row = $result->fetch_assoc()) {
-                $components->createPageComponent('large', $row['title'], $row['description'], $row['path_url'], '', '' , 'Course');
+                $components->createPageComponent('large', $row['title'], $row['description'], $row['path_url'], $row['photo_path'], '', 'Course');
             }
             $sql = "SELECT * FROM lesson WHERE course_id = $course_id";
             $result = $mysqli->query($sql);

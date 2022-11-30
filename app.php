@@ -29,11 +29,12 @@ switch ($size) {
         <h3>// ' . $sub_tag . ' //</h3>
         <h2>' . $header . '</h2>
             <p>' . $content . '</p>
-        <div class="button">
-            <div><img src="images/icons8-play-96.png" alt="play button" height="40" width="40"></div>
-            <div>Start Learning Now</div>
-        </div>    
-            
+        <a href="' . $path . '">
+            <div class="button">
+                <div><img src="images/mind.png" alt="play button" height="40" width="40"></div>
+                <div>Start Learning Now</div>
+            </div>    
+        </a> 
         </div>
         <div class="pageComponentImage">
             <img src="' . $img_path . '" alt="' . $img_alt . '">
@@ -46,9 +47,7 @@ switch ($size) {
                 <p>' . $content . '</p>
            
             </div>
-            <div class="pageComponentImage">
-                <img src="' . $img_path . '" alt="' . $img_alt . '">
-            </div> </div>';
+             </div>';
             break;
     default:
         # code...
