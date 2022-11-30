@@ -1,13 +1,8 @@
 <?php
-// Created to provide many exams
-// Demo 3 different exams  - Fishing, C+, Java
 
-session_name("User");
-session_start();
-$path = "./";
-$examID = $_GET['examID'];
+// $path = "./";
+// $examID = $_GET['examID'];
 $calledURL = basename($_SERVER['REQUEST_URI']);
-require $path . '../../../dbConnect.inc';
 
 $sql = "SELECT * FROM quiz WHERE examID = '$examID';";
 
@@ -21,7 +16,6 @@ if (isset($_POST["submitted"])) {
     $grade = false;
 } //end of if
 
-//  echo "<h2>"  . $calledURL . "</h2>"; // testing variable $calledURL
 ?>
 
 <!-- <form action = "get_quiz2.php?examID=1" method = "POST"> -->
@@ -31,7 +25,7 @@ if (isset($_POST["submitted"])) {
     <?php
 
     $result = mysqli_query($mysqli, $sql);
-
+    // var_dump($result); 
     $quiz_id = 0;
 
     if (mysqli_num_rows($result) > 0) {
@@ -59,10 +53,9 @@ if (isset($_POST["submitted"])) {
 
                 $count++;
 
-                $sqlOptions = "SELECT * FROM multipleChoiceOptions WHERE questionID = '$questionID';";
+                $sqlOptions = "SELECT * FROM multipleChoiceOption WHERE questionID = '$questionID';";
 
                 $resultOptions = mysqli_query($mysqli, $sqlOptions);
-
 
                 if (mysqli_num_rows($resultOptions) > 0) {
                     $optionCount = 1;

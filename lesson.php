@@ -17,9 +17,14 @@ include 'db_connect.php'?>
         <div class="contentComponent">
            <?php
             $lesson_id = $_GET['id'];
-            $result = $mysqli->query("SELECT * FROM lesson WHERE id = $lesson_id");
-            while ($row = $result->fetch_assoc()) {
-                echo $row['lesson_text'];
+            if ($lesson_id != 4) {
+                $result = $mysqli->query("SELECT * FROM lesson WHERE id = $lesson_id");
+                while ($row = $result->fetch_assoc()) {
+                    echo $row['lesson_text'];
+                }
+            } else {
+                $examID=1;
+                include 'quiz.php';
             }
 
            ?>
